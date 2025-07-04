@@ -2,14 +2,16 @@ import React, {useState, useEffect} from 'react'
 import {Link, useNavigate, useParams } from 'react-router-dom';
 import EmployeeService from '../services/EmployeeService'
 
-const AddEmployeeComponent = () => {
 
+const AddEmployeeComponent = () => {
+    // 사원 등록, 사원 수정(id)
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [emailId, setEmailId] = useState('')
     const navigate = useNavigate();
     const {id} = useParams();
 
+    // 사원 등록, 사원 수정, 사원 삭제(e)
     const saveOrUpdateEmployee = (e) => {
         e.preventDefault();
 

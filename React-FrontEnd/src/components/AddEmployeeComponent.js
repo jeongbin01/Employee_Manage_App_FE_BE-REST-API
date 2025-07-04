@@ -11,7 +11,7 @@ const AddEmployeeComponent = () => {
     const navigate = useNavigate();
     const {id} = useParams();
 
-    // 사원 등록, 사원 수정, 사원 삭제(e)
+    // 사원 등록, 수정을 서버로 전송하는 함수
     const saveOrUpdateEmployee = (e) => {
         e.preventDefault();
 
@@ -38,13 +38,19 @@ const AddEmployeeComponent = () => {
         
     }
 
+    // 컴포넌트가 로드될때 기본으로 작동되는 혹
     useEffect(() => {
 
+
         EmployeeService.getEmployeeById(id).then((response) =>{
+            console.log(response)
+            console.log(response.data)
+
             setFirstName(response.data.firstName)
             setLastName(response.data.lastName)
             setEmailId(response.data.emailId)
         }).catch(error => {
+            console.log("서버로 부터 오류가 발생 했습니다.")
             console.log(error)
         })
     }, [])

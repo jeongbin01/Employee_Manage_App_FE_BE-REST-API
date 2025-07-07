@@ -70,6 +70,9 @@ public class EmployeeController {
     // build create employee REST API
     @PostMapping
    public Employee createEmployee(@RequestBody EmployeeDTO employeeDTO) {
+    	System.out.println(employeeDTO.getLastName());
+    	System.out.println(employeeDTO.getFirstName());
+    	System.out.println(employeeDTO.getEmailId());
         return employeeService.createEmployee(employeeDTO);
     }
 
